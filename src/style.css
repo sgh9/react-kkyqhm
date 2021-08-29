@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #fffff8;
+}
+
+.container {
+  width: 98%;
+  padding: 1rem;
+  margin: 0 auto;
+  background-color: rgba(233, 236, 236, 0.548);
+}
+
+.nav-icon {
+  text-align: center;
+  z-index: 400000;
+}
+
+.note {
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 1px 5px #ccc;
+  margin: 0 auto 1rem;
+  border-radius: 5px;
+}
+.note p {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notes-details {
+  min-height: 100vh;
+  padding-top: 0;
+}
+
+.text-area {
+  padding-top: 1rem;
+  width: 100%;
+  min-height: 100vh;
+  background-color: transparent;
+  border: 0;
+}
+
+.text-area:focus {
+  outline: 0;
+}
+
+.nav ul {
+  list-style-type: none;
+}
+
+.nav-container li {
+  font-weight: 300;
+  font-size: small;
+  padding: 1rem 0;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 100;
+}
+
+.nav {
+  width: 100%;
+  background-color: rgba(233, 236, 236, 1);
+  padding: 0.5rem 0;
+  position: relative;
+  z-index: 500000;
+}
+.menu-items {
+  width: 100%;
+  position: absolute;
+  transform: translateY(-150%);
+  transition: 0.5s;
+  background-color: #fff;
+  padding: 0.5rem;
+  z-index: 110;
+}
+
+.show {
+  transform: translateY(0);
+}
+
+.search-container {
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin: 1rem 0;
+  display: flex;
+}
+
+.search-container input {
+  display: inline-block;
+  padding: 0.2rem 0;
+  background-color: transparent;
+  border: 0;
+  width: 100%;
+}
+
+.search-container input:focus {
+  outline: none;
+}
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  height: 100%;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
