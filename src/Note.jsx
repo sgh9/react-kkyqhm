@@ -6,7 +6,7 @@ const Note = ({ note }) => {
   return (
     <div className="note" onClick={() => history.push(note.id)}>
       <p>
-        <strong>{note.title}</strong>
+        <strong>{note.body}</strong>
       </p>
       <small>{note.date}</small>
     </div>
