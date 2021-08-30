@@ -25,7 +25,7 @@ let initialState = notes || [
   },
   {
     id: uuid(),
-    body: 'this the body of the note 4',
+    body: 'this the body of the note 444',
     category: 'general',
     date: new Date().toLocaleString()
   }

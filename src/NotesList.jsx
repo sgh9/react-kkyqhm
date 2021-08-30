@@ -10,13 +10,19 @@ const NotesList = () => {
   const notesContext = useContext(NotesContext);
   let history = useHistory();
   const [notes, setNotes] = useState([]);
+  const [searchKey, setSearchKey] = useState('');
+
+  // useEffect(() => {
+  //   setNotes(notes);
+  // }, [searchKey]);
 
   useEffect(() => {
     setNotes(notesContext.notes);
   }, []);
 
   const onSearchKey = searchKey => {
-    let newNotes = notes.filter(note => {
+    setSearchKey(searchKey);
+    let newNotes = [...notesContext.notes].filter(note => {
       return (
         searchKey.toString() === '' ||
         note.body
@@ -26,6 +32,7 @@ const NotesList = () => {
       );
     });
     setNotes(newNotes);
+    console.log('newNotes', newNotes, searchKey);
   };
 
   return (
