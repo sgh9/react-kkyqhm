@@ -61,23 +61,13 @@ const NotesContextProvider = ({ children }) => {
     });
   };
 
-  const searchNotes = searchKey => {
-    dispatch({
-      type: 'SEARCH',
-      payload: {
-        searchKey
-      }
-    });
-  };
-
   return (
     <NotesContext.Provider
       value={{
         notes,
         addNewNote: addNewNote,
         updateNotes: updateNotes,
-        deleteNotes: deleteNotes,
-        searchNotes
+        deleteNotes: deleteNotes
       }}
     >
       {children}

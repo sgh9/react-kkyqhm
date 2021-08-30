@@ -21,20 +21,8 @@ const reducer = (state, action) => {
       });
       return notes;
 
-    case 'SEARCH':
-      notes = [...state].filter(note => {
-        return (
-          action.payload.searchKey.toString() === '' ||
-          note.body
-            .toString()
-            .toUpperCase()
-            .includes(action.payload.searchKey.toString().toUpperCase())
-        );
-      });
-
-      console.log('searchKey:', notes);
-      return notes;
+    default:
+      return state;
   }
-  return state;
 };
 export default reducer;

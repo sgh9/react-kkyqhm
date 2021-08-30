@@ -9,15 +9,29 @@ import { useHistory } from 'react-router-dom';
 const NotesList = () => {
   const notesContext = useContext(NotesContext);
   let history = useHistory();
-  
+  const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    setNotes(notesContext.notes);
+  }, []);
+
   const onSearchKey = searchKey => {
-    notesContext.searchNotes(searchKey);
+    let newNotes = notes.filter(note => {
+      return (
+        searchKey.toString() === '' ||
+        note.body
+          .toString()
+          .toUpperCase()
+          .includes(searchKey.toString().toUpperCase())
+      );
+    });
+    setNotes(newNotes);
   };
 
   return (
     <>
       <Search onSearchKey={onSearchKey} />
-      {notesContext.notes.map(note => {
+      {notes.map(note => {
         return <Note note={note} key={note.id} />;
       })}
 
