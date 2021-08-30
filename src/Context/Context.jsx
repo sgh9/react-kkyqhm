@@ -2,7 +2,9 @@ import React, { useReducer, createContext } from 'react';
 import { v4 as uuid } from 'uuid';
 import reducer from './reducer';
 
-let initialState = [
+let notes = JSON.parse(localStorage.getItem('notes'));
+
+let initialState = notes || [
   {
     id: uuid(),
     body: 'this the body of the note 1',
@@ -33,7 +35,6 @@ export const NotesContext = createContext(initialState);
 
 const NotesContextProvider = ({ children }) => {
   const [notes, dispatch] = useReducer(reducer, initialState);
-
   const addNewNote = note => {
     dispatch({
       type: 'ADD',
@@ -50,9 +51,23 @@ const NotesContextProvider = ({ children }) => {
       }
     });
   };
+
+  const deleteNotes = id => {
+    dispatch({
+      type: 'DELETE',
+      payload: {
+        id: id
+      }
+    });
+  };
   return (
     <NotesContext.Provider
-      value={{ notes, addNewNote: addNewNote, updateNotes: updateNotes }}
+      value={{
+        notes,
+        addNewNote: addNewNote,
+        updateNotes: updateNotes,
+        deleteNotes: deleteNotes
+      }}
     >
       {children}
     </NotesContext.Provider>

@@ -8,6 +8,7 @@ body {
   font-size: 100%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #fffff8;
+ 
 }
 
 .container {
@@ -15,6 +16,7 @@ body {
   padding: 1rem;
   margin: 0 auto;
   background-color: rgba(233, 236, 236, 0.548);
+  min-height: 100vh;
 }
 
 .nav-icon {
@@ -29,6 +31,11 @@ body {
   margin: 0 auto 1rem;
   border-radius: 5px;
 }
+.note .bottom-row {
+  display: flex;
+  justify-content: space-between;
+}
+
 .note p {
   width: 100%;
   white-space: nowrap;
@@ -37,16 +44,17 @@ body {
 }
 
 .notes-details {
-  min-height: 100vh;
+  min-height: 80vh;
   padding-top: 0;
 }
 
 .text-area {
   padding-top: 1rem;
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   background-color: transparent;
   border: 0;
+  resize: none;
 }
 
 .text-area:focus {
@@ -110,6 +118,23 @@ body {
 
 .search-container input:focus {
   outline: none;
+}
+
+.add-new-notes {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgb(226, 173, 108);
+  border-radius: 50%;
+  color: #fff;
+  font-size: large;
+  position: relative;
+  left: 85%;
+}
+.add-new-notes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {

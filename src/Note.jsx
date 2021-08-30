@@ -1,14 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { NotesContext } from './Context/Context';
 
 const Note = ({ note }) => {
   let history = useHistory();
+  const notesContext = useContext(NotesContext);
+
   return (
-    <div className="note" onClick={() => history.push(note.id)}>
+    <div className="note" onClick={() => history.replace(note.id)}>
       <p>
         <strong>{note.body}</strong>
       </p>
-      <small>{note.date}</small>
+      <div className="bottom-row">
+        <small>{note.date}</small>
+        <br />
+        <small
+          onClick={e => {
+            e.stopPropagation();
+            notesContext.deleteNotes(note.id);
+          }}
+        >
+          Delete
+        </small>
+      </div>
     </div>
   );
 };

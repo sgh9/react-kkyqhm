@@ -8,20 +8,18 @@ import NotesContextProvider from './Context/Context';
 
 export default function App() {
   return (
-    <Router>
-      <NotesContextProvider>
-        <Navbar />
-        <main className="container">
-          <Switch>
-            <Route exact path="/">
-              <NotesList />
-            </Route>
-            <Route exact path="/:notesId">
-              <NotesDetails />
-            </Route>
-          </Switch>
-        </main>
-      </NotesContextProvider>
-    </Router>
+    <NotesContextProvider>
+      <Navbar />
+      <main className="container">
+        <Switch>
+          <Route exact path="/">
+            <NotesList />
+          </Route>
+          <Route exact path="/:notesId">
+            <NotesDetails />
+          </Route>
+        </Switch>
+      </main>
+    </NotesContextProvider>
   );
 }

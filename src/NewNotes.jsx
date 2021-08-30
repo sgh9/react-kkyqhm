@@ -1,9 +1,9 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { NotesContext } from './Context/Context';
-const NewNotes= ()=> {
+const NewNotes = () => {
   const [newNote, setNewNote] = useState({});
   const notesContext = useContext(NotesContext);
-  
+
   useEffect(() => {
     addNNote();
   }, []);
@@ -21,11 +21,11 @@ const NewNotes= ()=> {
   };
   return (
     <div className="form-container">
-        <form onSubmit={handleSubmit}>
-            <input type="text" className="title" name="title"/>
-        </form>
+      <form onSubmit={handleSubmit}>
+        <input type="text" className="title" name="title" />
+      </form>
     </div>
-  )
-}
+  );
+};
 
 export default NewNotes;
