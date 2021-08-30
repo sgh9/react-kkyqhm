@@ -39,7 +39,7 @@ const NotesContextProvider = ({ children }) => {
     dispatch({
       type: 'ADD',
       payload: {
-        note: note
+        note
       }
     });
   };
@@ -47,7 +47,7 @@ const NotesContextProvider = ({ children }) => {
     dispatch({
       type: 'UPDATE',
       payload: {
-        note: note
+        note
       }
     });
   };
@@ -56,17 +56,28 @@ const NotesContextProvider = ({ children }) => {
     dispatch({
       type: 'DELETE',
       payload: {
-        id: id
+        id
       }
     });
   };
+
+  const searchNotes = searchKey => {
+    dispatch({
+      type: 'SEARCH',
+      payload: {
+        searchKey
+      }
+    });
+  };
+
   return (
     <NotesContext.Provider
       value={{
         notes,
         addNewNote: addNewNote,
         updateNotes: updateNotes,
-        deleteNotes: deleteNotes
+        deleteNotes: deleteNotes,
+        searchNotes
       }}
     >
       {children}

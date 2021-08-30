@@ -1,4 +1,5 @@
 const reducer = (state, action) => {
+  let notes;
   switch (action.type) {
     case 'ADD':
       return [...state, action.payload.note];
@@ -9,18 +10,31 @@ const reducer = (state, action) => {
         note => note.id.toString() === id.toString()
       );
 
-      let notes = [...state];
+      notes = [...state];
       notes[index] = action.payload.note;
 
       return [...notes];
 
     case 'DELETE':
-      let remainingNotes = [...state].filter(note => {
+      notes = [...state].filter(note => {
         return note.id.toString() !== action.payload.id.toString();
       });
-      return remainingNotes;
-  }
+      return notes;
 
+    case 'SEARCH':
+      notes = [...state].filter(note => {
+        return (
+          action.payload.searchKey.toString() === '' ||
+          note.body
+            .toString()
+            .toUpperCase()
+            .includes(action.payload.searchKey.toString().toUpperCase())
+        );
+      });
+
+      console.log('searchKey:', notes);
+      return notes;
+  }
   return state;
 };
 export default reducer;

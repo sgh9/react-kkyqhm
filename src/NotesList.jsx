@@ -9,12 +9,14 @@ import { useHistory } from 'react-router-dom';
 const NotesList = () => {
   const notesContext = useContext(NotesContext);
   let history = useHistory();
-  let startClick = 0;
-  let listRef = useRef(null);
+  
+  const onSearchKey = searchKey => {
+    notesContext.searchNotes(searchKey);
+  };
 
   return (
     <>
-      <Search />
+      <Search onSearchKey={onSearchKey} />
       {notesContext.notes.map(note => {
         return <Note note={note} key={note.id} />;
       })}

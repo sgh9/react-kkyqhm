@@ -4,21 +4,6 @@ const NewNotes = () => {
   const [newNote, setNewNote] = useState({});
   const notesContext = useContext(NotesContext);
 
-  useEffect(() => {
-    addNNote();
-  }, []);
-
-  const addNote = () => {
-    let newNote = {
-      id: '5',
-      title: 'fgfgf ',
-      body: 'fgfgfgfgf',
-      category: 'gfgfgf',
-      date: 'gfgfgfgf'
-    };
-
-    notesContext.addNewNote(newNote);
-  };
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
