@@ -27,8 +27,8 @@ const NotesList = () => {
         searchKey.toString() === '' ||
         note.body
           .toString()
-          .toUpperCase()
-          .includes(searchKey.toString().toUpperCase())
+          .toLowerCase()
+          .includes(searchKey.toString().toLowerCase())
       );
     });
     setNotes(newNotes);
