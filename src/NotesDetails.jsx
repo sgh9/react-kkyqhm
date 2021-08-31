@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { NotesContext } from './Context/Context';
 import { v4 as uuid } from 'uuid';
-
+import { timeFormat } from './utilities';
 const NotesDetails = () => {
   const { notesId } = useParams();
   const textAreaRef = useRef();
@@ -26,14 +26,10 @@ const NotesDetails = () => {
         id: notesId,
         category: 'general',
         body: '',
-        date: new Date().toLocaleString()
+        date: timeFormat(new Date().getTime())
       });
     }
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem('notes', JSON.stringify(notesContext.notes));
-  }, [notesContext.notes]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -54,7 +50,7 @@ const NotesDetails = () => {
       id: uuid(),
       category: 'general',
       body: newNote.body,
-      date: new Date().toLocaleString()
+      date: timeFormat(new Date().getTime())
     };
 
     notesContext.addNewNote(newNoteInput);

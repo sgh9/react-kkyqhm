@@ -7,7 +7,7 @@ const Note = ({ note }) => {
   const notesContext = useContext(NotesContext);
 
   return (
-    <div className="note" onClick={() => history.replace(note.id)}>
+    <div className="note" onClick={() => history.replace(`notes/${note.id}`)}>
       <p>
         <strong>{note.body}</strong>
       </p>
@@ -15,6 +15,7 @@ const Note = ({ note }) => {
         <small>{note.date}</small>
         <br />
         <small
+          style={{ cursor: 'pointer' }}
           onClick={e => {
             e.stopPropagation();
             notesContext.deleteNotes(note.id);

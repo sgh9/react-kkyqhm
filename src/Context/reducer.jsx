@@ -2,7 +2,8 @@ const reducer = (state, action) => {
   let notes;
   switch (action.type) {
     case 'ADD':
-      return [...state, action.payload.note];
+      notes = [action.payload.note, ...state];
+      return notes;
 
     case 'UPDATE':
       const { id } = action.payload.note;

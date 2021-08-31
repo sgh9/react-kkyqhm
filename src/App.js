@@ -15,7 +15,10 @@ export default function App() {
           <Route exact path="/">
             <NotesList />
           </Route>
-          <Route exact path="/:notesId">
+          <Route exact path="/:category">
+            <NotesList />
+          </Route>
+          <Route exact path="/notes/:notesId">
             <NotesDetails />
           </Route>
         </Switch>

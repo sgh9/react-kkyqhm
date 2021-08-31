@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  let {
+    location: { pathname }
+  } = useHistory();
+
+  useEffect(() => {
+    
+  }, [pathname]);
 
   return (
     <div className="nav-container">
@@ -14,19 +21,19 @@ const Navbar = () => {
         </div>
       </nav>
       <ul className={`menu-items ${showMenu && 'show'}`}>
-        <NavLink to="/All">
+        <Link className={`${pathname === '/' ? 'active' : ''}`} to="/">
           <li className="menu-item">
             <strong>All Notes </strong>
             <span>{133}</span>
           </li>
-        </NavLink>
-        <NavLink to="/Jokes">
+        </Link>
+        <NavLink className="nav-link" to="/Jokes">
           <li className="menu-item">
             <strong>Jokes</strong>
             <span>{133}</span>
           </li>
         </NavLink>
-        <NavLink to="/General">
+        <NavLink className="nav-link" to="/General">
           <li className="menu-item">
             <strong>General</strong>
             <span>{133}</span>

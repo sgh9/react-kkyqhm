@@ -8,7 +8,6 @@ body {
   font-size: 100%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #fffff8;
- 
 }
 
 .container {
@@ -148,4 +147,8 @@ body {
 a {
   text-decoration: none;
   color: #000;
+}
+
+.active li {
+  font-weight: 400;
 }
