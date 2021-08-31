@@ -12,16 +12,17 @@ const NotesList = () => {
   const [notes, setNotes] = useState([]);
   const [searchKey, setSearchKey] = useState('');
 
-  // useEffect(() => {
-  //   setNotes(notes);
-  // }, [searchKey]);
-
   useEffect(() => {
     setNotes(notesContext.notes);
   }, []);
 
-  const onSearchKey = searchKey => {
-    setSearchKey(searchKey);
+  useEffect(() => {
+    let newNotes = filterNotes();
+    setNotes(newNotes);
+    console.log('searchKey:', searchKey);
+  }, [searchKey]);
+
+  const filterNotes = () => {
     let newNotes = [...notesContext.notes].filter(note => {
       return (
         searchKey.toString() === '' ||
@@ -31,13 +32,12 @@ const NotesList = () => {
           .includes(searchKey.toString().toLowerCase())
       );
     });
-    setNotes(newNotes);
-    console.log('newNotes', newNotes, searchKey);
+    return newNotes;
   };
 
   return (
     <>
-      <Search onSearchKey={onSearchKey} />
+      <Search onSearchKey={searchKey => setSearchKey(searchKey)} />
       {notes.map(note => {
         return <Note note={note} key={note.id} />;
       })}

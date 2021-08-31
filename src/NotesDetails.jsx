@@ -11,7 +11,7 @@ const NotesDetails = () => {
   const [editNoteId, setEditNoteId] = useState('');
 
   useEffect(() => {
-    textAreaRef.current?.focus();
+    //textAreaRef.current?.focus();
     const notes = [...notesContext.notes];
 
     const selectedNote = notes.find(note => {
