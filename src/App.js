@@ -21,6 +21,7 @@ export default function App() {
           <Route exact path="/notes/:notesId">
             <NotesDetails />
           </Route>
+          <Route path="*" render={() => <p>401</p>} />
         </Switch>
       </main>
     </NotesContextProvider>
