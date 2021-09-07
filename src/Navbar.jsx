@@ -1,9 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, Link, useHistory, useLocation } from 'react-router-dom';
+import { NotesContext } from './Context/Context';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   let { pathname } = useLocation();
+  const notesContext = useContext(NotesContext);
+  const [categories, setCategories] = useState([
+    {
+      id: 1,
+      category: 'Jokes',
+      quantity: [...notesContext.notes].filter(
+        note => note.category === 'jokes'
+      ).length
+    },
+    {
+      id: 2,
+      category: 'general',
+      quantity: [...notesContext.notes].filter(
+        note => note.category === 'general'
+      ).length
+    }
+  ]);
 
   return (
     <div className="nav-container">
