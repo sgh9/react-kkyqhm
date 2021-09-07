@@ -39,21 +39,19 @@ const Navbar = () => {
         >
           <li className="menu-item">
             <strong>All Notes </strong>
-            <span>{133}</span>
+            <span>{notesContext.notes.length}</span>
           </li>
         </Link>
-        <NavLink className="nav-link" to="/Jokes">
-          <li className="menu-item">
-            <strong>Jokes</strong>
-            <span>{133}</span>
-          </li>
-        </NavLink>
-        <NavLink className="nav-link" to="/General">
-          <li className="menu-item">
-            <strong>General</strong>
-            <span>{133}</span>
-          </li>
-        </NavLink>
+        {categories.map(category => {
+          return (
+            <NavLink className="nav-link" to="/Jokes">
+              <li className="menu-item">
+                <strong>{category.category}</strong>
+                <span>{category.quantity}</span>
+              </li>
+            </NavLink>
+          );
+        })}
       </ul>
     </div>
   );
