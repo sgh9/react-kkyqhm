@@ -9,43 +9,43 @@ let initialState = notes || [
   {
     id: uuid(),
     body: 'this the body of the note 1',
-    category: 'general',
+    category: 'General',
     date: timeFormat(new Date().getTime() - 200000)
   },
   {
     id: uuid(),
     body: 'this the body of the note 2',
-    category: 'general',
+    category: 'General',
     date: timeFormat(new Date().getTime() - 600000)
   },
   {
     id: uuid(),
     body: 'this the body of the note 3',
-    category: 'general',
+    category: 'General',
     date: timeFormat(new Date('2021-02-09T14:56:23').getTime())
   },
   {
     id: uuid(),
     body: 'this the body of the note 3',
-    category: 'general',
+    category: 'General',
     date: timeFormat(new Date('2021-02-09T14:56:23').getTime())
   },
   {
     id: uuid(),
     body: 'this the body of the note 3',
-    category: 'general',
+    category: 'General',
     date: timeFormat(new Date('2021-02-09T14:56:23').getTime())
   },
   {
     id: uuid(),
     body: 'this the body of the note 3',
-    category: 'jokes',
+    category: 'Jokes',
     date: timeFormat(new Date('2021-02-09T14:56:23').getTime())
   },
   {
     id: uuid(),
     body: 'this the body of the note 444',
-    category: 'jokes',
+    category: 'Jokes',
     date: timeFormat(new Date().getTime())
   }
 ];

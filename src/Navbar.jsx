@@ -24,9 +24,10 @@ const Navbar = () => {
       ).length
     }
   ]);
-  const addNewCategory = () => {
-    setShowModal(true);
-    const newCategories = [...categories];
+  const addNewCategory = e => {
+    e.preventDefault();
+    const newCategories = [...categories, newCategory];
+    console.log('newCategories:', newCategories);
   };
 
   return (
@@ -62,8 +63,7 @@ const Navbar = () => {
           <li
             className="menu-item new-category"
             onClick={() => {
-              console.log('show in Navbar:', showMenu);
-              addNewCategory;
+              setShowModal(true);
             }}
           >
             <strong>Add New category</strong>
@@ -73,15 +73,19 @@ const Navbar = () => {
       <Modal show={showModal} onModalClose={() => setShowModal(false)}>
         <h5>Add New category</h5>
         <br />
-        <form onSubmit={addNewCategory} />
-        <input
-          type="text"
-          name="newCategory"
-          value={newCategory}
-          onChange={e => {
-            setNewCategory(e.target.value);
-          }}
-        />
+        <form onSubmit={e => addNewCategory(e)}>
+          <input
+            type="text"
+            name="newCategory"
+            value={newCategory}
+            onChange={e => {
+              setNewCategory(e.target.value);
+            }}
+          />
+          &nbsp;
+          <button>Cancel</button> &nbsp;
+          <button>Save</button>
+        </form>
         <br />
       </Modal>
     </>

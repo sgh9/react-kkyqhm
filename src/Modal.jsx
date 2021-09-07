@@ -6,7 +6,6 @@ const Modal = ({ show, onModalClose, children }) => {
 
   const showMenu = () => {
     setShowModal(show);
-    console.log('showModal in modal:', show, showModal);
   };
 
   useEffect(() => {
