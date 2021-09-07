@@ -6,6 +6,8 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   let { pathname } = useLocation();
   const notesContext = useContext(NotesContext);
+  const [showModal, setShowModal] = useState(false);
+  const [newCategory, setNewCategory] = useState('');
   const [categories, setCategories] = useState([
     {
       id: 1,
@@ -22,6 +24,10 @@ const Navbar = () => {
       ).length
     }
   ]);
+  const addNewCategory = () => {
+    setShowModal(true);
+    const newCategories = [...categories];
+  };
 
   return (
     <>
@@ -43,9 +49,9 @@ const Navbar = () => {
               <span>{notesContext.notes.length}</span>
             </li>
           </Link>
-          {categories.map(category => {
+          {categories.map((category, i) => {
             return (
-              <NavLink className="nav-link" to={category.category}>
+              <NavLink key={i} className="nav-link" to={category.category}>
                 <li className="menu-item">
                   <strong>{category.category}</strong>
                   <span>{category.quantity}</span>
@@ -53,14 +59,30 @@ const Navbar = () => {
               </NavLink>
             );
           })}
-          <li className="menu-item new-category">
+          <li
+            className="menu-item new-category"
+            onClick={() => {
+              console.log('show in Navbar:', showMenu);
+              addNewCategory;
+            }}
+          >
             <strong>Add New category</strong>
           </li>
         </ul>
       </div>
-      <Modal>
+      <Modal show={showModal} onModalClose={() => setShowModal(false)}>
         <h5>Add New category</h5>
-        <input type="text" name="newCategory" value={newC}
+        <br />
+        <form onSubmit={addNewCategory} />
+        <input
+          type="text"
+          name="newCategory"
+          value={newCategory}
+          onChange={e => {
+            setNewCategory(e.target.value);
+          }}
+        />
+        <br />
       </Modal>
     </>
   );

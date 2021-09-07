@@ -168,6 +168,8 @@ a {
   align-items: center;
   padding: 1rem;
   border-radius: 5px;
+  box-shadow: 1px 1px 10px #111;
+  transition-duration: 0.5s;
 }
 
 .modal-container.show {
@@ -176,6 +178,6 @@ a {
 
 .modal-close {
   position: absolute;
-  right: 1%;
-  top: 5%;
+  right: 0;
+  top: 0;
 }
