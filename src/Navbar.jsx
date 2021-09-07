@@ -25,7 +25,6 @@ const Navbar = () => {
     let quantity = [...notesContext.notes].filter(
       note => note.category === categoryType
     ).length;
-
     return quantity;
   }
 
