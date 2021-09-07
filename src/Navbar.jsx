@@ -16,7 +16,7 @@ const Navbar = () => {
     },
     {
       id: 2,
-      category: 'general',
+      category: 'General',
       quantity: [...notesContext.notes].filter(
         note => note.category === 'general'
       ).length
@@ -45,7 +45,7 @@ const Navbar = () => {
           </Link>
           {categories.map(category => {
             return (
-              <NavLink className="nav-link" to="/Jokes">
+              <NavLink className="nav-link" to={category.category}>
                 <li className="menu-item">
                   <strong>{category.category}</strong>
                   <span>{category.quantity}</span>
