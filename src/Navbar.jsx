@@ -12,22 +12,32 @@ const Navbar = () => {
     {
       id: 1,
       category: 'Jokes',
-      quantity: [...notesContext.notes].filter(
-        note => note.category === 'jokes'
-      ).length
+      quantity: getQuantity('Jokes')
     },
     {
       id: 2,
       category: 'General',
-      quantity: [...notesContext.notes].filter(
-        note => note.category === 'general'
-      ).length
+      quantity: getQuantity('General')
     }
   ]);
+  function getQuantity(categoryType) {
+    let quantity = [...notesContext.notes].filter(
+      note => note.category === categoryType
+    ).length;
+
+    return quantity;
+  }
   const addNewCategory = e => {
     e.preventDefault();
-    const newCategories = [...categories, newCategory];
-    console.log('newCategories:', newCategories);
+    const newCategories = [
+      ...categories,
+      {
+        id: categories.length + 1,
+        category: newCategory,
+        quantity: getQuantity(newCategory)
+      }
+    ];
+    setCategories(newCategories);
   };
 
   return (
