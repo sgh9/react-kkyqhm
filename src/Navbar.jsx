@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, Link, useHistory, useLocation } from 'react-router-dom';
 import { NotesContext } from './Context/Context';
 import Modal from './Modal';
+
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   let { pathname } = useLocation();
@@ -51,7 +52,6 @@ const Navbar = () => {
   };
   useEffect(() => {
     localStorage.setItem('categories', JSON.stringify(categories));
-    console.log('categories:', categories);
   }, [categories]);
 
   useEffect(() => {
