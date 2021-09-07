@@ -59,7 +59,8 @@ const Navbar = () => {
         </ul>
       </div>
       <Modal>
-        <h3>Heading</h3>
+        <h5>Add New category</h5>
+        <input type="text" name="newCategory" value={newC}
       </Modal>
     </>
   );
