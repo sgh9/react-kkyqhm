@@ -20,6 +20,7 @@ const Navbar = () => {
       quantity: getQuantity('General')
     }
   ]);
+
   function getQuantity(categoryType) {
     let quantity = [...notesContext.notes].filter(
       note => note.category === categoryType
@@ -27,8 +28,16 @@ const Navbar = () => {
 
     return quantity;
   }
+
   const addNewCategory = e => {
     e.preventDefault();
+    if (
+      categories.find(category => category.category === newCategory) ||
+      !newCategory
+    ) {
+      alert('Enter valid category name ');
+      return;
+    }
     const newCategories = [
       ...categories,
       {
@@ -38,6 +47,8 @@ const Navbar = () => {
       }
     ];
     setCategories(newCategories);
+    setShowModal(false);
+    setNewCategory('');
   };
 
   return (
@@ -93,7 +104,7 @@ const Navbar = () => {
             }}
           />
           &nbsp;
-          <button>Cancel</button> &nbsp;
+          <button onClick={() => setShowModal(false)}>Cancel</button> &nbsp;
           <button>Save</button>
         </form>
         <br />
