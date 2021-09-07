@@ -49,7 +49,14 @@ const Navbar = () => {
     setShowModal(false);
     setNewCategory('');
   };
+  useEffect(() => {
+    localStorage.setItem('categories', JSON.stringify(categories));
+  }, [categories]);
 
+  useEffect(() => {
+    const newCategories = JSON.parse(localStorage.getItem('categories'));
+    setCategories(newCategories);
+  }, []);
   return (
     <>
       <div className="nav-container">
