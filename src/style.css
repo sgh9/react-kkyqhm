@@ -158,4 +158,12 @@ a {
 .modal-container {
   position: absolute;
   bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  z-index: 1000;
+  transform: translateX(-100%);
+}
+
+.modal-container.show {
+  transform: translateX(0);
 }
