@@ -51,12 +51,14 @@ const Navbar = () => {
   };
   useEffect(() => {
     localStorage.setItem('categories', JSON.stringify(categories));
+    console.log('categories:', categories);
   }, [categories]);
 
   useEffect(() => {
     const newCategories = JSON.parse(localStorage.getItem('categories'));
     setCategories(newCategories);
   }, []);
+
   return (
     <>
       <div className="nav-container">
