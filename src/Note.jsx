@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { NotesContext } from './Context/Context';
 
 const Note = ({ note }) => {
   let history = useHistory();
   const notesContext = useContext(NotesContext);
-
+  let { pathname } = useLocation();
   return (
-    <div className="note" onClick={() => history.replace(`notes/${note.id}`)}>
+    <div
+      className="note"
+      onClick={() => history.replace(`${pathname}/notes/${note.id}`)}
+    >
       <p>
         <strong>{note.body}</strong>
       </p>

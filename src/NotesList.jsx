@@ -70,7 +70,7 @@ const NotesList = () => {
 
       <span
         className="add-new-notes"
-        onClick={() => history.push(`notes/General${uuid()}`)}
+        onClick={() => history.push(`notes/General/${uuid()}`)}
       >
         <strong>+</strong>
       </span>

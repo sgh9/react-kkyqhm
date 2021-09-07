@@ -4,12 +4,11 @@ import { NotesContext } from './Context/Context';
 import { v4 as uuid } from 'uuid';
 import { timeFormat } from './utilities';
 const NotesDetails = () => {
-  const { notesId } = useParams();
+  const { notesId, category } = useParams();
   const textAreaRef = useRef();
   const [newNote, setNewNote] = useState({});
   const notesContext = useContext(NotesContext);
   const [editNoteId, setEditNoteId] = useState('');
-
   useEffect(() => {
     //textAreaRef.current?.focus();
     const notes = [...notesContext.notes];
@@ -24,7 +23,7 @@ const NotesDetails = () => {
     } else {
       setNewNote({
         id: notesId,
-        category: 'general',
+        category: category,
         body: '',
         date: timeFormat(new Date().getTime())
       });
