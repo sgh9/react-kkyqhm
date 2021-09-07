@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import menuClose from './assests/menu-close.svg';
+import close from './assests/menu-close.svg';
 
 const Modal = ({ children }) => {
   const [show, setShow] = useState(false);
@@ -9,7 +9,9 @@ const Modal = ({ children }) => {
   return (
     <div className={`modal-container show ${show}`}>
       <div className="modal">{children}</div>
-      <span className="modal" />
+      <span className="close">
+        <img className="modal-close" src={close} />
+      </span>
     </div>
   );
 };
