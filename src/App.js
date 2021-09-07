@@ -3,7 +3,7 @@ import './style.css';
 import NotesList from './NotesList';
 import NotesDetails from './NotesDetails';
 import Navbar from './Navbar';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import NotesContextProvider from './Context/Context';
 
 export default function App() {
@@ -11,8 +11,9 @@ export default function App() {
     <NotesContextProvider>
       <Navbar />
       <main className="container">
+        <Redirect to="/All" />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/All">
             <NotesList />
           </Route>
           <Route exact path="/:category">

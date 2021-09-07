@@ -9,7 +9,7 @@ const Note = ({ note }) => {
   return (
     <div
       className="note"
-      onClick={() => history.replace(`${pathname || ''}/notes/${note.id}`)}
+      onClick={() => history.replace(`${pathname}/notes/${note.id}`)}
     >
       <p>
         <strong>{note.body}</strong>
