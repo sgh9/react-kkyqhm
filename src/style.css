@@ -152,3 +152,6 @@ a {
 .active li {
   font-weight: 400;
 }
+.new-category {
+  color: rgb(199, 153, 27);
+}

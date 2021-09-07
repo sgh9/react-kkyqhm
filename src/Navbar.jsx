@@ -52,6 +52,9 @@ const Navbar = () => {
             </NavLink>
           );
         })}
+        <li className="menu-item new-category">
+          <strong>Add New category</strong>
+        </li>
       </ul>
     </div>
   );
