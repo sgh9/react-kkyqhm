@@ -71,8 +71,8 @@ const Navbar = () => {
         </nav>
         <ul className={`menu-items ${showMenu && 'show'}`}>
           <Link
-            className={`${pathname.toString() === '/' ? 'active' : ''}`}
-            to="/"
+            className={`${pathname.toString() === '/All' ? 'active' : ''}`}
+            to="/All"
           >
             <li className="menu-item">
               <strong>All Notes </strong>
