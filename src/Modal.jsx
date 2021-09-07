@@ -6,7 +6,7 @@ const Modal = ({ children }) => {
     setShow(true);
   });
   return (
-    <div className={`modal-container ${show}`}>
+    <div className={`modal-container show ${show}` }>
       <div className="modal">{children}</div>
     </div>
   );

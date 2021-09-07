@@ -162,6 +162,9 @@ a {
   width: 100%;
   z-index: 1000;
   transform: translateX(-100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-container.show {
